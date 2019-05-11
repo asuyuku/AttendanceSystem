@@ -22,7 +22,7 @@ public class asSignInController
         return mv;
 
     }
-    @RequestMapping("asSignIn.do")
+    @RequestMapping("/asSignIn.do")
     public JSONObject asSignIn(User user,double lng,double lat)
     {
         JSONObject jsonObject=new JSONObject();
@@ -31,4 +31,5 @@ public class asSignInController
         jsonObject.put("result",false);
         return jsonObject;
     }
+
 }
