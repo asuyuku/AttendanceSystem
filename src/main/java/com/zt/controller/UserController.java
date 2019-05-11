@@ -48,7 +48,7 @@ public class UserController {
         map.put("records",records);
         return map;
     }
-    
+
     @RequestMapping("teacherSelectRecord.do")
     @ResponseBody
     public Map<String,Object> teacherSelectRecord(HttpServletRequest request)
