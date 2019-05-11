@@ -14,5 +14,19 @@
             <if test="number != null">and number = #{number}</if>
         </where>
     </select>
-
+    <select id="selectRecord" parameterType="User" resultMap="Record">
+        select * from srecord
+        <where>
+            <if test="id!=null">id=#{id}</if>
+        </where>
+    </select>
+    <select id="teacherSelectRecord" parameterType="User" resultMap="Record">
+        select * from srecord
+        <where>
+          slesson.suser_id=${id}
+        </where>
+        left join slesson on slesson.id=srecord.slesson_id
+        left join suser on suser.id=srecord.suser_id
+        left join sclass on sclass.id=suser.sclass_id
+    </select>
 </mapper>

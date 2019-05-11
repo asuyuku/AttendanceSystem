@@ -1,6 +1,7 @@
 package com.zt.service;
 
 import com.zt.mapper.UserMapper;
+import com.zt.pojo.Record;
 import com.zt.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,13 @@ public class UserService {
             return user;
         }
         return null;
+    }
+    public List<Record> selectRecordService(User user)
+    {
+        return userMapper.selectRecord(user);
+    }
+    public List<Record> teacherSelectRecordService(User user)
+    {
+        return userMapper.teacherSelectRecord(user);
     }
 }

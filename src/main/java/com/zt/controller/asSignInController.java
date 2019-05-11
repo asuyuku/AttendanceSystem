@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by tjzha on 2019/5/10.
  */
@@ -23,8 +25,9 @@ public class asSignInController
 
     }
     @RequestMapping("/asSignIn.do")
-    public JSONObject asSignIn(User user,double lng,double lat)
+    public JSONObject asSignIn(HttpServletRequest request, double lng, double lat)
     {
+        User user=(User)request.getSession().getAttribute("user");
         JSONObject jsonObject=new JSONObject();
         if(signInService.signIn(user,lng,lat))
         jsonObject.put("result",true);
